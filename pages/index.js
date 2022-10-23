@@ -1,19 +1,21 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stats } from "@react-three/drei";
-import Player from "../components/Player";
-
+import Lights from "../components/Lights";
+import Controls from "../components/Controls";
+import { lazy, Suspense } from "react";
+const Trees = lazy(() => import("../components/Trees"));
+const Player = lazy(() => import("../components/Player"));
 export default function Home() {
   return (
     <div>
       <main className="canvas">
-        <Canvas shadows>
-          {/* <axesHelper args={[4]} /> */}
-          <gridHelper args={[60, 60]} />
-          <OrbitControls />
-          <Stats />
-          <ambientLight intensity={0.1} />
-          <directionalLight position={[-4, 2, 5]} />
-          <Player />
+        <Canvas camera={{ position: [0, 4, 5] }}>
+          <Controls />
+          <Lights />
+          <Suspense fallback={null}>
+            <Trees boundary={60} count={20} />
+            <Player />
+          </Suspense>
+          <gridHelper args={[100, 100]} />
         </Canvas>
       </main>
     </div>
