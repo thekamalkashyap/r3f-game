@@ -12,7 +12,7 @@ export default function Home() {
           <Controls />
           <Lights />
           <Suspense fallback={null}>
-            <Trees boundary={60} count={20} />
+            {/* <Trees boundary={60} count={20} /> */}
             <Player />
           </Suspense>
           <gridHelper args={[100, 100]} />

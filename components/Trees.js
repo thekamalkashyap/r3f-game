@@ -68,7 +68,7 @@ const Trees = ({ boundary, count }) => {
   useEffect(() => {
     const tempTrees = [];
     for (let i = 0; i < count; i++) {
-      tempTrees.push({ position: { x: 0, z: 0 }, box: 1 });
+      tempTrees.push({ position: { x: 0, z: 0 }, box: 2.5 });
     }
     updatePosition(tempTrees, boundary);
   }, [boundary, count]);
