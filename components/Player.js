@@ -101,10 +101,10 @@ const Player = () => {
       walkDirection.normalize();
       walkDirection.applyAxisAngle(rotateAngle, newDirectionOffset);
 
-      const velocity = currentAction.current == "run" ? 0.002 : 0.001;
+      const velocity = currentAction.current == "run" ? 20 : 10 ;
 
-      const moveX = walkDirection.x + velocity + delta;
-      const moveZ = walkDirection.z + velocity + delta;
+      const moveX = walkDirection.x * velocity * delta;
+      const moveZ = walkDirection.z * velocity * delta;
       model.scene.position.x += moveX;
       model.scene.position.z += moveZ;
       updateCameraTarget(moveX, moveZ);
