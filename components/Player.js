@@ -114,7 +114,7 @@ const Player = () => {
   return (
     <>
       <OrbitControls ref={controlRef} />
-      <primitive object={model.scene} />
+      <primitive castShadow object={model.scene} />
     </>
   );
 };
